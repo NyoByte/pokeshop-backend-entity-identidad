@@ -19,8 +19,8 @@ public class TbTipoDocumento implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @Column(name = "id_tipo_documento")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_tipo_documento")
     private Integer idTipoDocumento;
 
     @Column(name = "codigo", length = 20, nullable = false)

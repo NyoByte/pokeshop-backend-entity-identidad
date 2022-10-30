@@ -19,8 +19,8 @@ public class TbDistrito implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @Column(name = "id_distrito")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_distrito")
     private Integer idDistrito;
 
     @Column(name = "codigo", length = 20, nullable = false)

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.pokeshop.ecommerce.entity.entidad.TbUsuario;
 import com.pokeshop.ecommerce.utils.EntityDto;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 import org.springframework.hateoas.RepresentationModel;
 
@@ -29,15 +30,21 @@ public class TbUsuarioDto extends RepresentationModel<TbUsuarioDto> implements E
     @Builder.Default
     private boolean defEmail = true;
 
-    private String password;
+    private String clave;
     @JsonIgnore
     @Builder.Default
-    private boolean defPassword = true;
+    private boolean defClave = true;
 
     private Boolean estado;
     @JsonIgnore
     @Builder.Default
     private boolean defEstado = true;
+
+    @ApiModelProperty(hidden = true)
+    private TbPersonaDto tbPersonaForidPersona;
+    @JsonIgnore
+    @Builder.Default
+    private TbPersonaDto defTbPersonaForidPersona = null;
 
     public static TbUsuarioDto build() {
         return TbUsuarioDto.builder().build();
@@ -59,11 +66,14 @@ public class TbUsuarioDto extends RepresentationModel<TbUsuarioDto> implements E
             if (template.isDefEmail()) {
                 dto.setEmail(entity.getEmail());
             }
-            if (template.isDefPassword()) {
-                dto.setPassword(entity.getPassword());
+            if (template.isDefClave()) {
+                dto.setClave(entity.getClave());
             }
             if (template.isDefEstado()) {
                 dto.setEstado(entity.getEstado());
+            }
+            if (template.getDefTbPersonaForidPersona() != null) {
+                dto.loadTbPersonaForidPersona(template, entity);
             }
             return dto;
         } else {
@@ -76,9 +86,14 @@ public class TbUsuarioDto extends RepresentationModel<TbUsuarioDto> implements E
         return TbUsuario.builder()
                 .idUsuario(this.getIdUsuario())
                 .email(this.getEmail())
-                .password(this.getPassword())
+                .clave(this.getClave())
                 .estado(this.getEstado())
+                .tbPersonaForidPersona(this.getTbPersonaForidPersona() != null ? this.getTbPersonaForidPersona().toEntity() : null)
                 .build();
+    }
+
+    private void loadTbPersonaForidPersona(TbUsuarioDto template, TbUsuario entity) {
+        this.setTbPersonaForidPersona(TbPersonaDto.build().fromEntity(template.getDefTbPersonaForidPersona(), entity.getTbPersonaForidPersona()));
     }
 
 }

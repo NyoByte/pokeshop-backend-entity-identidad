@@ -28,11 +28,15 @@ public class TbPersona implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @GenericGenerator(name = "generator", strategy = "foreign", parameters = @org.hibernate.annotations.Parameter(name = "property", value = "tbUsuario"))
     @Id
+    @GenericGenerator(name = "generator", strategy = "foreign", parameters = @org.hibernate.annotations.Parameter(name = "property", value = "tbUsuario"))
     @GeneratedValue(generator = "generator")
     @Column(name = "id_persona", unique = true, nullable = false)
-    private Integer id_persona;
+    private Integer idPersona;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @PrimaryKeyJoinColumn
+    private TbUsuario tbUsuario;
 
     @Column(name = "nro_documento", length = 20, nullable = false)
     private String nroDocumento;
@@ -49,7 +53,7 @@ public class TbPersona implements Serializable {
     @Column(name = "direccion", length = 250, nullable = false)
     private String direccion;
 
-    @Column(name = "celular", length = 13, nullable = false)
+    @Column(name = "celular", length = 9, nullable = false)
     private String celular;
 
     @Column(name = "email", length = 80)
@@ -83,5 +87,10 @@ public class TbPersona implements Serializable {
 
     @Column(name = "estado", nullable = false)
     private Boolean estado;
+
+    public void setTbUsuario(TbUsuario tbUsuario) {
+        this.tbUsuario = tbUsuario;
+        this.idPersona = tbUsuario.getIdUsuario();
+    }
 
 }

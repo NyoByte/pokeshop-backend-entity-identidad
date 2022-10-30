@@ -16,19 +16,23 @@ public class TbUsuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @Column(name = "id_usuario")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_usuario")
     private Integer idUsuario;
 
-    @Column(name = "email", length = 250, nullable = false)
+    @Column(name = "email", length = 80, nullable = false)
     private String email;
 
-    @Column(name = "password", length = 250, nullable = false)
-    private String password;
+    @Column(name = "clave", length = 50, nullable = false)
+    private String clave;
 
     @Column(name = "estado", nullable = false)
     private Boolean estado;
 
     @OneToOne(mappedBy = "tbUsuario")
+    private TbPersona tbPersonaForidPersona;
+
+    @OneToOne(mappedBy = "tbUsuario")
     private TbProveedor tbProveedorForidProveedor;
+
 }

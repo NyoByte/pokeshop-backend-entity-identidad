@@ -17,11 +17,11 @@ public class TbProveedor implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @GenericGenerator(name = "generator", strategy = "foreign", parameters = @org.hibernate.annotations.Parameter(name = "property", value = "tbUsuario"))
     @Id
+    @GenericGenerator(name = "generator", strategy = "foreign", parameters = @org.hibernate.annotations.Parameter(name = "property", value = "tbUsuario"))
     @GeneratedValue(generator = "generator")
     @Column(name = "id_proveedor", unique = true, nullable = false)
-    private Integer id_proveedor;
+    private Integer idProveedor;
 
     @OneToOne(fetch = FetchType.LAZY)
     @PrimaryKeyJoinColumn
@@ -36,7 +36,15 @@ public class TbProveedor implements Serializable {
     @Column(name = "direccion", length = 250, nullable = false)
     private String direccion;
 
+    @Column(name = "email", length = 80, nullable = false)
+    private String email;
+
     @Column(name = "estado", nullable = false)
     private Boolean estado;
+
+    public void setTbUsuario(TbUsuario tbUsuario) {
+        this.tbUsuario = tbUsuario;
+        this.idProveedor = tbUsuario.getIdUsuario();
+    }
 
 }
