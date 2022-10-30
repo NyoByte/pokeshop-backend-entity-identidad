@@ -2,10 +2,10 @@ package com.pokeshop.ecommerce.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.nyobyte.util.EntityDto;
 import com.pokeshop.ecommerce.entity.entidad.TbPersona;
 import com.pokeshop.ecommerce.entity.enumerado.EnumEstadoCivil;
 import com.pokeshop.ecommerce.entity.enumerado.EnumGenero;
-import com.pokeshop.ecommerce.utils.EntityDto;
 import lombok.*;
 import org.springframework.hateoas.RepresentationModel;
 

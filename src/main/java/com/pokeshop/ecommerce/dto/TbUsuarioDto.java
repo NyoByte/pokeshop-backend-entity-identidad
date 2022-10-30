@@ -2,8 +2,8 @@ package com.pokeshop.ecommerce.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.nyobyte.util.EntityDto;
 import com.pokeshop.ecommerce.entity.entidad.TbUsuario;
-import com.pokeshop.ecommerce.utils.EntityDto;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.*;
 import org.springframework.hateoas.RepresentationModel;
