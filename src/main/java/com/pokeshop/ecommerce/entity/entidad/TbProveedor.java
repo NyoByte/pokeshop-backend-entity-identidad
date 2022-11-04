@@ -12,7 +12,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
-@Table(name = "tb_proveedor", uniqueConstraints = {@UniqueConstraint(columnNames = {"nroDocumento"})})
+@Table(name = "tb_proveedor", uniqueConstraints = {@UniqueConstraint(columnNames = {"nro_documento"})})
 public class TbProveedor implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -27,7 +27,7 @@ public class TbProveedor implements Serializable {
     @PrimaryKeyJoinColumn
     private TbUsuario tbUsuario;
 
-    @Column(name = "nroDocumento", length = 11, nullable = false)
+    @Column(name = "nro_documento", length = 11, nullable = false)
     private String nroDocumento;
 
     @Column(name = "nombre", length = 100, nullable = false)

@@ -22,7 +22,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
-@Table(name = "tb_persona", uniqueConstraints = {@UniqueConstraint(columnNames = {"nroDocumento", "celular", "email"})})
+@Table(name = "tb_persona", uniqueConstraints = {@UniqueConstraint(columnNames = {"nro_documento", "celular", "email"})})
 @TypeDef(name = "pgsql_enum", typeClass = PostgreSQLEnumType.class)
 public class TbPersona implements Serializable {
 
