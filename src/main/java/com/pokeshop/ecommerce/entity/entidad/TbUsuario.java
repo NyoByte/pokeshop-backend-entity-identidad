@@ -23,7 +23,7 @@ public class TbUsuario implements Serializable {
     @Column(name = "email", length = 80, nullable = false)
     private String email;
 
-    @Column(name = "clave", length = 50, nullable = false)
+    @Column(name = "clave", length = 80, nullable = false)
     private String clave;
 
     @Column(name = "estado", nullable = false)

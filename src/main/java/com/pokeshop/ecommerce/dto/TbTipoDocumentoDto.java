@@ -54,6 +54,16 @@ public class TbTipoDocumentoDto extends RepresentationModel<TbTipoDocumentoDto> 
     @Builder.Default
     private boolean defEstado = true;
 
+    public TbTipoDocumentoDto(Integer idTipoDocumento, String codigo, String nombre, String descripcion, Integer longitudMinima, Integer longitudMaxima, Boolean estado) {
+        this.idTipoDocumento = idTipoDocumento;
+        this.codigo = codigo;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.longitudMinima = longitudMinima;
+        this.longitudMaxima = longitudMaxima;
+        this.estado = estado;
+    }
+
     public static TbTipoDocumentoDto build() {
         return TbTipoDocumentoDto.builder().build();
     }

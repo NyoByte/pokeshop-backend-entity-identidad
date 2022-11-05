@@ -46,6 +46,12 @@ public class TbUsuarioDto extends RepresentationModel<TbUsuarioDto> implements E
     @Builder.Default
     private TbPersonaDto defTbPersonaForidPersona = null;
 
+    @ApiModelProperty(hidden = true)
+    private TbProveedorDto tbProveedorForidProveedor;
+    @JsonIgnore
+    @Builder.Default
+    private TbProveedorDto defTbProveedorForidProveedor = null;
+
     public static TbUsuarioDto build() {
         return TbUsuarioDto.builder().build();
     }
@@ -75,6 +81,9 @@ public class TbUsuarioDto extends RepresentationModel<TbUsuarioDto> implements E
             if (template.getDefTbPersonaForidPersona() != null) {
                 dto.loadTbPersonaForidPersona(template, entity);
             }
+            if (template.getDefTbProveedorForidProveedor() != null) {
+                dto.loadTbProveedorForidProveedor(template, entity);
+            }
             return dto;
         } else {
             return null;
@@ -89,11 +98,16 @@ public class TbUsuarioDto extends RepresentationModel<TbUsuarioDto> implements E
                 .clave(this.getClave())
                 .estado(this.getEstado())
                 .tbPersonaForidPersona(this.getTbPersonaForidPersona() != null ? this.getTbPersonaForidPersona().toEntity() : null)
+                .tbProveedorForidProveedor(this.getTbProveedorForidProveedor() != null ? this.getTbProveedorForidProveedor().toEntity() : null)
                 .build();
     }
 
     private void loadTbPersonaForidPersona(TbUsuarioDto template, TbUsuario entity) {
         this.setTbPersonaForidPersona(TbPersonaDto.build().fromEntity(template.getDefTbPersonaForidPersona(), entity.getTbPersonaForidPersona()));
+    }
+
+    private void loadTbProveedorForidProveedor(TbUsuarioDto template, TbUsuario entity) {
+        this.setTbProveedorForidProveedor(TbProveedorDto.build().fromEntity(template.getDefTbProveedorForidProveedor(), entity.getTbProveedorForidProveedor()));
     }
 
 }

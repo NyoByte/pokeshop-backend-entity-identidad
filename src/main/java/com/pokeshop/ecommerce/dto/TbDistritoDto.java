@@ -39,6 +39,13 @@ public class TbDistritoDto extends RepresentationModel<TbDistritoDto> implements
     @Builder.Default
     private boolean defEstado = true;
 
+    public TbDistritoDto(Integer idDistrito, String codigo, String nombre, Boolean estado) {
+        this.idDistrito = idDistrito;
+        this.codigo = codigo;
+        this.nombre = nombre;
+        this.estado = estado;
+    }
+
     public static TbDistritoDto build() {
         return TbDistritoDto.builder().build();
     }
