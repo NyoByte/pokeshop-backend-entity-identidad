@@ -49,10 +49,10 @@
             <version>1.6.8</version>
             <type>jar</type>
         </dependency>
-        <!-- NyoByte-Util -->
+        <!-- Pokeshop-Util -->
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>nyobyte-backend-utils</artifactId>
+            <artifactId>pokeshop-backend-utils</artifactId>
             <version>1.0</version>
         </dependency>
     </dependencies>
