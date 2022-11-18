@@ -51,7 +51,7 @@
         </dependency>
         <!-- NyoByte-Util -->
         <dependency>
-            <groupId>com.nyobyte</groupId>
+            <groupId>${project.groupId}</groupId>
             <artifactId>nyobyte-backend-utils</artifactId>
             <version>1.0</version>
         </dependency>
